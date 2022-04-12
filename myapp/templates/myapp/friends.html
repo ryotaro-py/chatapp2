@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'myapp/css/friends.css' %}"/>
+{% endblock %}
+
+{% block header-title %}<span class="friend"><header>友達</header></span>{% endblock %}
+
+{% block content %}
+<body>
+    <table class="table">
+        {% for item in l %}
+            <tr class="friends"><a href="{% url 'talk_room' item.0.pk %}"></a>
+            <td><img class="img" src="../media/{{item.0.img}}" width="100" height="100"></img></td>
+            <td class="username">{{item.0.username}}</td>
+            <td class="message"><a href="{% url 'talk_room' item.0.pk %}">{{item.1.message}}</a></td>
+            <td>{{item.1.date}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+{% endblock %} 
+    

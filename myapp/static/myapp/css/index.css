@@ -1,0 +1,21 @@
+.signup {
+    display: block;
+    text-align: center;
+    font-size:50px;
+    color:black;
+    width: 200px;
+    border: solid #000;
+    text-decoration: none;
+    border-radius:20px;
+}
+
+.login {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+    color: black;
+    width: 200px;
+    border: solid #000;
+    text-decoration: none;
+    border-radius: 20px;
+}

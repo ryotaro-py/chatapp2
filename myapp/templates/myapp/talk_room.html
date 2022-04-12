@@ -1,1 +1,47 @@
-TR
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block extra_style %}
+ <link rel="stylesheet"
+  href="http://stackpath.bootstrapcdn.com/bootstap/4.3.1/css/bootstap.min.css"
+  crossorigin="anonymous">
+ <link rel="stylesheet" href="{% static 'myapp/css/talk_room.css' %}"/>
+{% endblock %}
+
+{% block header-title %}
+<header>{{other.username}}</header>
+{% endblock %}
+
+{% block content %}
+<body>
+    <table class=""table>
+        {% for item in message %}
+        <tr>
+            {% if item.friend == request.user %}
+            <div align="left">
+                <h1>{{other.username}}</h1>
+                <h1>{{item.message}}</h1>
+                <h1>{{item.date}}</h1>
+            </div>
+            <hr>
+            {% else %}
+            <div align="right">
+                <h1>{{user}}</h1>
+                <h1>{{item.message}}</h1>
+                <h1>{{item.date}}</h1>
+            </div>    
+            {% endif %} 
+            <hr>   
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+{% endblock %}
+
+{% block footer %}
+<form action="" method="post">
+{% csrf_token %}
+<p>{{ form.as_p }}<input type="submit" value="送信" class="submit"></p>
+</form> 
+{% endblock %}

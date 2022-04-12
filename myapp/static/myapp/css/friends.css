@@ -1,0 +1,15 @@
+.friend{
+    text-align: center;
+    font-size: 50px;
+    background-color: gray;
+}
+
+.friends{
+    display: block;
+    border: solid #000;
+    width: 2000px;
+}
+
+.img{
+    border-radius: 50px 50px 50px 50px;
+}

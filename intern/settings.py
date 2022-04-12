@@ -119,3 +119,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTH_USER_MODEL="myapp.Member"
+
+LOGIN_URL = '/static/'
+LOGIN_REDIRECT_URL = "myapp.Member"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass 
