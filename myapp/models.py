@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+# from accounts.models import Member
 
 
 class Member(AbstractUser):
@@ -11,6 +12,8 @@ class Member(AbstractUser):
     date = models.DateTimeField(auto_now_add=True)
     class Meta:
         ordering = ('date', )
+
+
 
 
 class Message(models.Model):

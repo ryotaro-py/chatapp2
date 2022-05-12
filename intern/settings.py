@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    #'accounts.apps.AccountsConfig',
+    #'django.contrib.sites',
+    #'allauth',
+    #'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +80,12 @@ WSGI_APPLICATION = 'intern.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'hanako',
+        'USER': 'ryotaro',
+        'PASSWORD': 'Rytr2630',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -122,14 +130,28 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL="myapp.Member"
 
 LOGIN_URL = '/static/'
-LOGIN_REDIRECT_URL = "myapp.Member"
+# LOGIN_REDIRECT_URL = "myapp.Member"#ここおかしいやろ
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+#SITE_ID = 1
+
+#LOGIN_REDIRECT_URL = 'friends'
+#ACCOUNT_LOGOUT_REDIRECT_URL = 'myapp/index'
+
+#ACCOUNT_LOGOUT_ON_GET =True
+
+# ACCOUNT_FORMS = {
+#     'signup' : 'accounts.forms.CustomSignupForm',
+# }
+
+
 try:
     from .local_settings import *
 except ImportError:
     pass 
+
+

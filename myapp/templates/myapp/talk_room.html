@@ -10,12 +10,14 @@
 {% endblock %}
 
 {% block header-title %}
-<header>{{other.username}}</header>
+<div align="left"><a href="{% url 'friends' %}">戻る</a></div>
+<div align="center"><header>{{other}}</header></div>
 {% endblock %}
 
 {% block content %}
-<body>
-    <table class=""table>
+{% if message != None %}
+
+    <table class="table">
         {% for item in message %}
         <tr>
             {% if item.friend == request.user %}
@@ -36,7 +38,9 @@
         </tr>
         {% endfor %}
     </table>
-</body>
+{% else %}
+<p></p>
+{% endif %}
 {% endblock %}
 
 {% block footer %}
