@@ -17,11 +17,12 @@
 
     <table class="table">
         {% for item in message %}
-        <a href="{% url 'talk_room' item.0.pk %}">koko</a>
-        <img src="../media/{{item.0.img}}" height="100" width="100"></img>
-        <p>{{ item.0.username }}</p>
-        <p>{{ item.1.message }}</p>
-        <p>{{ item.1.date }}</p>
+        <a href="{% url 'talk_room' item.id %}">
+        <img src="../media/{{item.img.url}}" height="100" width="100"></img>
+        <p>{{ item.username }}</p>
+        <p>{{ item.latest_talk }}</p>
+        <p>{{ item.latest_time }}</p>
+        </a>
         {% endfor %}
     </table>
     
@@ -33,10 +34,10 @@
         <table class="table">
             
         </table>  -->
-        <tr class="friends"><a href="{% url 'talk_room' item.0.pk %}">koko</a>
-        <td><img class="img" src="../media/{{item.0.img}}" width="10" height="10"></img></td>
-        <td class="username">{{item.0.username}}</td>
-        <td class="message">{{item.1.message}}</td>
-        <td>{{item.1.date}}</td>
+        <tr class="friends"><a href="{% url 'talk_room' item.1 %}">koko</a>
+        <td><img class="img" src="../media/{{item.4}}" width="10" height="10"></img></td>
+        <td class="username">{{item.0}}</td>
+        <td class="message">{{item.3}}</td>
+        <td>{{item.2}}</td>
         </tr>    
 {% endcomment %}
